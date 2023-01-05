@@ -12,7 +12,7 @@ sigma_vm = float(input("Please enter sigma_vm: "))
 
 sigma_ak_prime = sigma_ak*b0
 sigma_D_prime = sigma_D*b0
-sigma_şd = sigma_D*b0*b1/beta_k
+sigma_sd = sigma_D*b0*b1/beta_k
 tana = sigma_vü/sigma_vm
 tan40 = tan(radians(40))
 
@@ -51,11 +51,11 @@ def sigmaDprime_to_sigma_akprime():
 
 def sigma_şd_to():
     xpoints = np.array([0, (sigma_ak_prime-sigma_D_prime)/tan40])
-    ypoints = np.array([sigma_şd, sigma_şd+(sigma_ak_prime-sigma_D_prime)])
+    ypoints = np.array([sigma_sd, sigma_sd+(sigma_ak_prime-sigma_D_prime)])
     plt.plot(xpoints, ypoints, color = "b")
 
     xpoints = np.array([(sigma_ak_prime-sigma_D_prime)/tan40, sigma_ak_prime])
-    ypoints = np.array([sigma_şd+(sigma_ak_prime-sigma_D_prime), sigma_ak_prime])
+    ypoints = np.array([sigma_sd+(sigma_ak_prime-sigma_D_prime), sigma_ak_prime])
     plt.plot(xpoints, ypoints, color = "b")
 
 def plot_tana():
@@ -63,15 +63,15 @@ def plot_tana():
     ypoints = np.array([0, sigma_D_prime])
     plt.plot(xpoints, ypoints, color = "green", linewidth = "3")
 
-sigma_şü = tana*sigma_şd/(tana-tan40)
-S = sigma_şü / sigma_vü
+sigma_sü = tana*sigma_sd/(tana-tan40)
+S = sigma_sü / sigma_vü
 
 def plotting():
     plot45()
     plotaxises()
     sigmaD_to_sigma_ak()
     sigmaDprime_to_sigma_akprime()
-    sigma_şd_to()
+    sigma_sd_to()
     plot_tana()
 
     plt.title("Smith Diagram")
